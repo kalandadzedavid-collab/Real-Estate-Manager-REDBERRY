@@ -10,11 +10,14 @@ const App = () => {
     
     <Header />
     
+    <main className="pl-40.5 pr-41.75">
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={ <AddListing />} />
         <Route path="/detail/:id" element={<Details />} />
     </Routes>
+    </main>
+    
     </>
   )
 }
