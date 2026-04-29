@@ -1,9 +1,16 @@
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+
 const Home = () => {
   return (
     <div>
-      <h2>home page</h2>
-    </div>
-  )
-}
+      <Link to={`/add`}><Button color="orange">+ ლისტინგის დამატება</Button></Link>
+      
+      <Button color="white">+ აგენტის დამატება</Button>
+      <Button color="gray">+ აგენტის დამატება</Button>
 
-export default Home
+    </div>
+  );
+};
+
+export default Home;
