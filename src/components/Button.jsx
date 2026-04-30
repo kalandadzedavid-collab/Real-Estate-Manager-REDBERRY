@@ -1,6 +1,6 @@
-const Button = ({ children, color }) => {
+const Button = ({ children, color, submit }) => {
   return (
-    <button
+    <button type={submit}
       className={`${
         color === "orange" ? orangeBut : color === "white" ? whiteBut : grayBut
       }  cursor-pointer px-4 py-2.5 transition-all rounded-[10px] 
