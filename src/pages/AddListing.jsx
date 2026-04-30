@@ -7,8 +7,6 @@ import { useMemo } from "react";
 
 const AddListing = () => {
   const {
-    isPending: regionIsPending,
-    error: regionError,
     data: regions,
   } = useQuery({
     queryKey: ["regions"],
@@ -16,8 +14,6 @@ const AddListing = () => {
   });
 
   const {
-    isPending: citiesArePending,
-    error: citiesError,
     data: cities,
   } = useQuery({
     queryKey: ["cities"],
@@ -139,7 +135,7 @@ font-medium mb-5.5"
                 <div className="relative w-96">
                   <select
                     id="region"
-                    className="cursor-pointer appearance-none w-full h-10 px-2.5 pr-10 rounded-md outline-1 -outline-offset-1 outline-slate-500 bg-white"
+                    className=" appearance-none w-full h-10 px-2.5 pr-10 rounded-md outline-1 -outline-offset-1 outline-slate-500 bg-white"
                     {...register("region_id")}
                   >
                     <option value="">აირჩიე რეგიონი</option>
@@ -174,7 +170,7 @@ font-medium mb-5.5"
                 <div className="relative w-96">
                   <select
                     id="city"
-                    className="cursor-pointer appearance-none w-full h-10 px-2.5 pr-10 rounded-md outline-1 -outline-offset-1 outline-slate-500 bg-white"
+                    className="appearance-none w-full h-10 px-2.5 pr-10 rounded-md outline-1 -outline-offset-1 outline-slate-500 bg-white"
                     {...register("city_id")}
                   >
                     {filteredCities?.map((city) => {
