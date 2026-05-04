@@ -45,11 +45,16 @@ export async function getAgents() {
 export async function createAgent(param) {
   const res = await fetch(`${BASE_URL}/agents`, {
     method: "POST",
-    headers: headers,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     body: param,
   });
 
-  throwError(res);
+  if (!res.ok) {
+    const errorData = await res.text();
+    throw new Error(`Failed to create agent: ${res.status} - ${errorData}`);
+  }
 
   return res.json();
 }
@@ -70,7 +75,9 @@ export async function getApartments() {
 export async function createApartment(param) {
   const res = await fetch(`${BASE_URL}/real-estates`, {
     method: "POST",
-    headers: headers,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     body: param,
   });
 

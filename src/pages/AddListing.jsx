@@ -15,7 +15,10 @@ import { Link } from "react-router-dom";
 // add validation to form
 const schema = yup.object({
   address: yup.string().required("აუცილებელია").min(2, "მინიმუმ ორი სიმბოლო"),
-  zip_code: yup.string().required("აუცილებელია").min(4, "მინიმუმ ოთხი სიმბოლო"),
+  zip_code: yup
+    .string()
+    .required("აუცილებელია")
+    .matches(/^[0-9]{4}$/, "უნდა შედგებოდეს მხოლოდ 4 ციფრისგან"),
   region_id: yup.string().required("აუცილებელია"),
   city_id: yup.string().required("აუცილებელია"),
   price: yup
@@ -29,7 +32,7 @@ const schema = yup.object({
   bedrooms: yup
     .string()
     .required("აუცილებელია")
-    .matches(/^[1-9]\d*$/, "მხოლოდ დადებითი რიცხვები"),
+    .matches(/^[1-9]\d*$/, "მხოლოდ რიცხვები"),
   description: yup
     .string()
     .required("აუცილებელია")
@@ -522,9 +525,11 @@ font-medium flex flex-col gap-1"
 
           <div className="flex w-full justify-end mt-22.5 gap-3.75">
             <Link to="/">
-              <Button color="white">გაუქმება</Button>
+              <Button color="white" submit="button">
+                გაუქმება
+              </Button>
             </Link>
-            <Button submit={"submit"} color="orange">
+            <Button submit="submit" color="orange">
               დაამატე ლისტინგი
             </Button>
           </div>
