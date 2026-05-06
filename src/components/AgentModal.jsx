@@ -47,7 +47,7 @@ const AgentModal = ({ setIsOpen }) => {
   const imageFile = watch("avatar");
 
   return (
-    <div className="absolute left-0 top-0 w-full h-screen z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+    <div className="fixed left-0 top-0 w-full h-screen z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
       <div className="px-26.25 py-21.75 w-252.25 h-196 bg-white rounded-[10px] shadow-[5px_5px_4px_0px_rgba(0,0,0,0.08)]">
         <h3
           className="text-slate-900 text-center mb-15.25
