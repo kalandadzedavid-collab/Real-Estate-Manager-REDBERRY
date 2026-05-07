@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import SwiperCustom from "../components/SwiperCustom";
 
 const Details = () => {
   const [isModal, setIsModal] = useState(false);
@@ -54,10 +55,10 @@ const Details = () => {
         </Link>
       </div>
 
-      <section className="flex items-center gap-22 mb-25">
+      <section className="flex-col items-start xl:flex-row flex xl:items-center gap-22 mb-25">
         <div
           style={{ backgroundImage: `url(${appart?.image})` }}
-          className={`flex justify-end items-end relative rounded-2xl bg-cover bg-center w-209.75 h-167.5 `}
+          className={`w-96 h-90 self-center flex justify-end items-end relative rounded-2xl bg-cover bg-center xl:w-209.75 xl:h-167.5 `}
         >
           <button
             className="py-1.5 absolute left-5.75 top-5.75 w-24 bg-slate-900/50 rounded-2xl text-white
@@ -175,7 +176,7 @@ font-normal leading-6"
           >
             {appart?.description}
           </p>
-          <div className="mb-5 w-125.75 py-5 px-4 rounded-lg outline -outline-offset-1 outline-zinc-300">
+          <div className="w-80 mb-5 xl:w-125.75 py-5 px-4 rounded-lg outline -outline-offset-1 outline-zinc-300">
             <div className="mb-4 flex items-center gap-3.5">
               <img
                 className="w-16 h-16 rounded-[100px]"
@@ -250,75 +251,38 @@ font-normal flex gap-1 items-center"
 
       <section className="w-full mb-57">
         <h4
-          className="text-slate-900
-text-3xl
+          className="text-slate-900 text-2xl
+xl:text-3xl
 font-medium mb-13.5"
         >
           ბინები მსგავს ლოკაციაზე
         </h4>
 
-        <div className="relative w-full px-12">
-          {/* 2. Custom Buttons: Positioned absolutely relative to the Outer Container */}
-          <button className="prev-btn absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full shadow-md hover:bg-gray-50 transition-all">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </button>
-
-          {/* 3. The Swiper: Width is 100% of the space between the paddings */}
+        <div className="relative w-full xl:px-4 md:px-12">
+          
           <Swiper
             modules={[Navigation]}
-            spaceBetween={80} // Space between cards
-            slidesPerView={1}
+            spaceBetween={20}
+            // "auto" allows the slide to take the width defined in CSS (340px)
+            slidesPerView={"auto"}
+            centeredSlides={false}
             navigation={{
               prevEl: ".prev-btn",
               nextEl: ".next-btn",
             }}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              1024: { slidesPerView: 2 },
-              1440: { slidesPerView: 3 },
-              1920: { slidesPerView: 4 },
-            }}
-            className="w-full"
+            className="w-full static!" // !static allows buttons to position relative to the outer container
           >
             {apartments
               ?.filter((appart) => appart?.city?.name === appartCity)
               .filter((app) => app.id !== appartId)
               .map((apart) => (
-                <SwiperSlide key={apart.id} className="py-4">
-                  {" "}
-                  {/* Padding top/bottom stops shadow clipping */}
+                // Define the fixed width here
+                <SwiperSlide key={apart.id} className="py-4 w-85!">
                   <ListingCard data={apart} />
                 </SwiperSlide>
               ))}
           </Swiper>
-
-          <button className="next-btn absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full shadow-md hover:bg-gray-50 transition-all">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
+         <SwiperCustom />
         </div>
       </section>
     </div>

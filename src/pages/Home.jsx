@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex-col gap-20 xl:flex-row flex justify-between items-center">
         <div>
           <h1>FILTER</h1>
         </div>
@@ -41,7 +41,7 @@ const Home = () => {
 
       {isOpen && <AgentModal setIsOpen={setIsOpen} />}
 
-      <section className="flex flex-wrap gap-5 w-full mb-55 mt-19.25">
+      <section className="justify-center xl:justify-start flex flex-wrap gap-5 w-full mb-55 mt-19.25">
         {apartments?.map((apart) => (
           <ListingCard key={apart.id} data={apart} />
         ))}

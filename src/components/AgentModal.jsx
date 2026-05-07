@@ -48,9 +48,9 @@ const AgentModal = ({ setIsOpen }) => {
 
   return (
     <div className="fixed left-0 top-0 w-full h-screen z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-      <div className="px-26.25 py-21.75 w-252.25 h-196 bg-white rounded-[10px] shadow-[5px_5px_4px_0px_rgba(0,0,0,0.08)]">
+      <div className="px-10 py-15 xl:px-26.25 xl:py-21.75 xl:w-252.25 xl:h-196 bg-white rounded-[10px] shadow-[5px_5px_4px_0px_rgba(0,0,0,0.08)]">
         <h3
-          className="text-slate-900 text-center mb-15.25
+          className="text-slate-900 text-center mb-5 xl:mb-15.25
 text-3xl
 font-medium"
         >
@@ -58,7 +58,7 @@ font-medium"
         </h3>
 
         <form
-          className="flex flex-wrap gap-7.75 mb-22.75"
+          className="w-96 xl:w-[unset] flex-col xl:flex-row flex flex-wrap gap-7.75 mb-22.75"
           onSubmit={handleSubmit((data) => {
             // create form data to solve image upload
             const formData = new FormData();
@@ -176,7 +176,7 @@ font-medium flex flex-col gap-1"
             className="text-slate-900 text-sm font-medium flex flex-col gap-1 w-197.5"
           >
             ატვირთეთ ფოტო *
-            <div className="relative w-full h-28.75 flex items-center justify-center border border-dashed border-slate-500 rounded-md bg-white cursor-pointer overflow-hidden hover:bg-slate-50 transition-colors">
+            <div className="w-96 relative xl:w-full h-28.75 flex items-center justify-center border border-dashed border-slate-500 rounded-md bg-white cursor-pointer overflow-hidden hover:bg-slate-50 transition-colors">
               {/* If image exists and has at least one file, show preview */}
               {imageFile && imageFile[0] ? (
                 <img

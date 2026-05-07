@@ -151,7 +151,7 @@ font-medium"
               },
             });
           })}
-          className="w-197.5 mt-15.25 mb-21.75"
+          className="w-96 xl:w-197.5 mt-15.25 mb-21.75"
         >
           <div>
             <h3
@@ -192,7 +192,7 @@ font-medium mb-5.5"
               მდებარეობა
             </h3>
 
-            <div className="flex flex-wrap gap-5">
+            <div className="flex-col xl:flex-row flex flex-wrap gap-5">
               <label
                 htmlFor="address"
                 className="text-slate-900
@@ -344,7 +344,7 @@ font-medium"
               ბინის დეტალები
             </h3>
 
-            <div className="flex flex-wrap gap-5">
+            <div className="flex-col xl:flex-row flex flex-wrap gap-5">
               <label
                 htmlFor="price"
                 className="text-slate-900
@@ -423,7 +423,7 @@ font-medium flex flex-col gap-1"
               >
                 აღწერა *{" "}
                 <textarea
-                  className="w-197.5 h-28.75 p-2.5 rounded-md outline-1 -outline-offset-1 outline-slate-500 resize-none"
+                  className="w-96 xl:w-197.5 h-28.75 p-2.5 rounded-md outline-1 -outline-offset-1 outline-slate-500 resize-none"
                   id="description"
                   {...register("description")}
                 />
@@ -443,7 +443,7 @@ font-medium flex flex-col gap-1"
                 className="text-slate-900 text-sm font-medium flex flex-col gap-1 w-197.5"
               >
                 ატვირთეთ ფოტო *
-                <div className="relative w-full h-28.75 flex items-center justify-center border border-dashed border-slate-500 rounded-md bg-white cursor-pointer overflow-hidden hover:bg-slate-50 transition-colors">
+                <div className="relative w-96 xl:w-full h-28.75 flex items-center justify-center border border-dashed border-slate-500 rounded-md bg-white cursor-pointer overflow-hidden hover:bg-slate-50 transition-colors">
                   {/* If image exists and has at least one file, show preview */}
                   {imageFile && imageFile[0] ? (
                     <img

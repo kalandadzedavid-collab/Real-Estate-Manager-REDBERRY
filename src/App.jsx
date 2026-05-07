@@ -10,7 +10,7 @@ const App = () => {
     
     <Header />
     
-    <main className="pl-40.5 pr-41.75">
+    <main className="px-10 xl:px-40 overflow-hidden">
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={ <AddListing />} />
