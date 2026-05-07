@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+/* 1. Make room for the arrows so they don't get cut off */
+.swiper {
+  padding: 0 50px !important; /* Adjust this value based on how far out you move arrows */
+}
+
+/* 2. Move the arrows outward */
+.swiper-button-prev {
+  left: 0px !important;  /* Moves it toward the left edge */
+  margin-left: -10px;    /* Pulls it further out if needed */
+}
+
+.swiper-button-next {
+  right: 0px !important; /* Moves it toward the right edge */
+  margin-right: -10px;   /* Pulls it further out if needed */
+}
+
+/* 3. Optional: Make them look like the circles in your screenshot */
+.swiper-button-next, .swiper-button-prev {
+  background-color: white;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+}
+
+/* 4. Make the arrows smaller to fit the circles */
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 14px !important;
+  font-weight: bold;
+  color: #374151; /* Tailwind gray-700 */
+}

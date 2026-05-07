@@ -24,18 +24,27 @@ const Home = () => {
 
   return (
     <div>
-      <Link to={`/add`}>
-        <Button color="orange">+ ლისტინგის დამატება</Button>
-      </Link>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1>FILTER</h1>
+        </div>
+        <div className="flex gap-5">
+          <Link to={`/add`}>
+            <Button color="orange">+ ლისტინგის დამატება</Button>
+          </Link>
 
-      <Button handleClick={() => setIsOpen((prev) => !prev)} color="white">
-        + აგენტის დამატება
-      </Button>
-      <Button color="gray">+ აგენტის დამატება</Button>
+          <Button handleClick={() => setIsOpen((prev) => !prev)} color="white">
+            + აგენტის დამატება
+          </Button>
+        </div>
+      </div>
+
       {isOpen && <AgentModal setIsOpen={setIsOpen} />}
 
-      <section className="flex flex-wrap gap-5 w-full justify-center">
-       {apartments?.map((apart) => <ListingCard key={apart.id} data={apart} />)}
+      <section className="flex flex-wrap gap-5 w-full mb-55 mt-19.25">
+        {apartments?.map((apart) => (
+          <ListingCard key={apart.id} data={apart} />
+        ))}
       </section>
     </div>
   );

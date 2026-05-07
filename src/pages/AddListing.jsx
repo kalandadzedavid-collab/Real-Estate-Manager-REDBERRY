@@ -10,9 +10,7 @@ import {
 } from "../api/apartments";
 import { useEffect, useMemo } from "react";
 import Button from "../components/Button";
-import { Link,  useNavigate } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
 
 // add validation to form
 const schema = yup.object({
@@ -49,9 +47,7 @@ const schema = yup.object({
 });
 
 const AddListing = () => {
-  
-const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   // get regions data
   const { data: regions } = useQuery({
@@ -148,7 +144,7 @@ font-medium"
             addListing.mutate(formData, {
               onSuccess: () => {
                 reset();
-                navigate('/')
+                navigate("/");
               },
               onError: (err) => {
                 console.error("Mutation error:", err);
